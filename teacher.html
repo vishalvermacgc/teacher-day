@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teacher's Day</title>
+    <style>
+        
+        * {margin:0; padding:0; box-sizing:border-box;}
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .container {
+            text-align: center;
+            padding: 1rem;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .input-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: all 0.6s ease;
+        }
+
+        .input-form.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-40px);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .input-group {margin-bottom: 1rem;}
+        label {display:block; margin-bottom: 0.4rem; font-weight:bold;}
+        
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            border-color:#667eea;
+            box-shadow:0 0 8px rgba(102,126,234,0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg,#ff6b6b,#ee5a24);
+            color:white; padding:0.8rem 1.5rem;
+            border:none; border-radius:50px;
+            font-size:1rem; font-weight:bold;
+            cursor:pointer;
+        }
+
+        .card {
+            display:none;
+            border-radius:20px;
+            padding:1.5rem;
+            margin-top:1rem;
+            box-shadow:0 15px 30px rgba(0,0,0,0.2);
+            transition:all 0.8s ease;
+        }
+
+        .card.show {display:block;}
+
+        #teacherCard {
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            transform:scale(0.9);
+        }
+        #teacherCard.show {transform:scale(1);}
+
+        .card-title {
+            font-size:1.8rem;
+            color:#e74c3c;
+            margin-bottom:0.8rem;
+        }
+
+        .teacher-name {font-size:1.5rem; font-weight:bold;}
+        .subject {font-size:1.1rem; font-style:italic; margin-bottom:0.8rem;}
+        .message {margin-bottom:1rem; font-size:1rem;}
+
+        #boardCard {background:#f8f1e7;}
+        .blackboard {
+            background:#2c3e50;
+            color:white; padding:1.5rem;
+            border:8px solid #8d6e63;
+            border-radius:12px;
+        }
+        .blackboard h2 {
+            font-size:1.5rem;
+            color:#ffd700;
+            margin:0.8rem 0;
+            font-style:italic;
+        }
+        .back-btn {
+            margin-top:0.8rem;
+            background:linear-gradient(45deg,#3498db,#2980b9);
+            color:white; padding:0.6rem 1rem;
+            border:none; border-radius:18px;
+            cursor:pointer;
+        }
+
+        /* 📱 Mobile ke liye responsive */
+        @media (max-width:600px) {
+            h1 {font-size:1.6rem;}
+            .card-title {font-size:1.4rem;}
+            .teacher-name {font-size:1.2rem;}
+            .subject {font-size:1rem;}
+            .message {font-size:0.9rem;}
+            input {font-size:0.9rem; padding:0.7rem;}
+            .submit-btn {font-size:0.9rem; padding:0.7rem 1.2rem;}
+            .blackboard h2 {font-size:1.2rem;}
+        }
+
+    </style>
+  
+</head>
+
+<body>
+    <div class="container">
+        <div class="input-form" id="inputForm">
+            <h1>🎓 Teacher's Day Special 🎓</h1>
+            <form id="teacherForm">
+                <div class="input-group">
+                    <label for="teacherName">Teacher का नाम:</label>
+                    <input type="text" id="teacherName" placeholder="अपने प्रिय शिक्षक का नाम लिखें" required>
+                </div>
+                <div class="input-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" placeholder="विषय का नाम लिखें" required>
+                </div>
+                <button type="submit" class="submit-btn">✨ Card बनाएं ✨</button>
+            </form>
+        </div>
+
+        <div class="card" id="teacherCard">
+            <div class="card-title">🌟 Happy Teacher's Day! 🌟</div>
+            <div class="teacher-name" id="displayName"></div>
+            <div class="subject" id="displaySubject"></div>
+            <div class="message">
+                आपने हमारे जीवन में ज्ञान का दीप जलाया है।<br>
+                आपका मार्गदर्शन हमारे लिए अनमोल है।<br>
+                धन्यवाद आपका! 🙏
+            </div>
+        </div>
+
+        <div class="card" id="boardCard">
+            <div class="blackboard">
+                <p>Thank you for teaching us</p>
+                <h2 id="boardName">Mrs. Samira</h2>
+                <p>You are our inspiration</p>
+            </div>
+            <button class="back-btn" onclick="goBack()">🔙 वापस जाएं</button>
+        </div>
+    </div>
+  <script src="techer.js" defer></script>
+
+</body>
+</html>
